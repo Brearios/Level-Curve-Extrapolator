@@ -5,6 +5,15 @@ namespace LevelCurveExtrapolator
 
     class Program
     {
+       static void ApplyLogic(int levelUpLevel, double levelUpStat, double levelUpMultiplier, int loopCount)
+			{
+				while (levelUpLevel <= loopCount)
+				{
+					Console.WriteLine("Level " + levelUpLevel + ": " + (long)levelUpStat);
+					levelUpLevel++;
+					levelUpStat = levelUpStat * levelUpMultiplier;
+				}
+			}
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Level Curve Extrapolator!");
@@ -21,7 +30,7 @@ namespace LevelCurveExtrapolator
             Console.WriteLine("How many levels do you need data for?");
             int loopCount = Convert.ToInt32(Console.ReadLine());
             
-            Console.WriteLine("Here are your values based on a rate that increases " + levelTenRatio + "at level 10, going to level " + loopCount);
+            Console.WriteLine("Here are your values based on a rate that increases " + levelTenRatio + " at level 10, going to level " + loopCount + ":");
             // This is unneeded because levelUpLevel is set to two. int loopCount = loopCount -=;
 
             Console.WriteLine("Level 1: " + levelOneStat);
@@ -32,67 +41,37 @@ namespace LevelCurveExtrapolator
             {
                 double levelUpMultiplier = 1.0461;
                 double levelUpStat = levelOneStat * levelUpMultiplier;
-                while (levelUpLevel <= loopCount)
-                {
-                    Console.WriteLine("Level " + levelUpLevel + ": " + (long)levelUpStat);
-                    levelUpLevel++;
-                    levelUpStat = levelUpStat * levelUpMultiplier;
-                }
+                ApplyLogic(levelUpLevel, levelUpStat, levelUpMultiplier, loopCount);
             }
             else if (levelTenRatio == "2x")
             {
-                double levelUpMultiplier = 1.0805;
-                double levelUpStat = levelOneStat * levelUpMultiplier;
-                while (levelUpLevel <= loopCount)
-                {
-                    Console.WriteLine("Level " + levelUpLevel + ": " + (long)levelUpStat);
-                    levelUpLevel++;
-                    levelUpStat = levelUpStat * levelUpMultiplier;
-                }
-            }
+              double levelUpMultiplier = 1.0805;
+              double levelUpStat = levelOneStat * levelUpMultiplier;
+			        ApplyLogic(levelUpLevel, levelUpStat, levelUpMultiplier, loopCount);
+		        }
             else if (levelTenRatio == "2.5x")
             {
                 double levelUpMultiplier = 1.1072;
                 double levelUpStat = levelOneStat * levelUpMultiplier;
-                while (levelUpLevel <= loopCount)
-                {
-                    Console.WriteLine("Level " + levelUpLevel + ": " + (long)levelUpStat);
-                    levelUpLevel++;
-                    levelUpStat = levelUpStat * levelUpMultiplier;
-                }
+                ApplyLogic(levelUpLevel, levelUpStat, levelUpMultiplier, loopCount);
             }
             else if (levelTenRatio == "5x")
             {
                 double levelUpMultiplier = 1.1959;
                 double levelUpStat = levelOneStat * levelUpMultiplier;
-                while (levelUpLevel <= loopCount)
-                {
-                    Console.WriteLine("Level " + levelUpLevel + ": " + (long)levelUpStat);
-                    levelUpLevel++;
-                    levelUpStat = levelUpStat * levelUpMultiplier;
-                }
+                ApplyLogic(levelUpLevel, levelUpStat, levelUpMultiplier, loopCount);
             }
             else if (levelTenRatio == "10x")
             {
                 double levelUpMultiplier = 1.2916;
                 double levelUpStat = levelOneStat * levelUpMultiplier;
-                while (levelUpLevel <= loopCount)
-                {
-                    Console.WriteLine("Level " + levelUpLevel + ": " + (long)levelUpStat);
-                    levelUpLevel++;
-                    levelUpStat = levelUpStat * levelUpMultiplier;
-                }
+                ApplyLogic(levelUpLevel, levelUpStat, levelUpMultiplier, loopCount);
             }
             else if (levelTenRatio == "20x")
             {
                 double levelUpMultiplier = 1.395;
                 double levelUpStat = levelOneStat * levelUpMultiplier;
-                while (levelUpLevel <= loopCount)
-                {
-                    Console.WriteLine("Level " + levelUpLevel + ": " + (long)levelUpStat);
-                    levelUpLevel++;
-                    levelUpStat = levelUpStat * levelUpMultiplier;
-                }
+                ApplyLogic(levelUpLevel, levelUpStat, levelUpMultiplier, loopCount);
             }
             else
             {
@@ -104,4 +83,5 @@ namespace LevelCurveExtrapolator
         }
         
     }
+   
 }
